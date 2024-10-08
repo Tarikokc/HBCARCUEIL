@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HBC Arcueil - Club de Handball</title>
+    <title>HBC Arcueillais - Club de Handball</title>
     <link rel="stylesheet" href="./index.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -139,6 +139,30 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .event-item {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .event-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 15px;
+            flex: 1;
         }
 
         /* Styles pour la section des équipes */
@@ -335,6 +359,15 @@
             .card iframe {
                 height: 300px;
             }
+
+            .event-item {
+                flex-direction: column;
+            }
+
+            .event-image {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -346,7 +379,7 @@
             <div class="header-content">
                 <span class="header-text">HBC</span>
                 <img src="hbc_arcueil.png" alt="Logo HBC Arcueil" class="header-logo">
-                <span class="header-text">ARCUEIL</span>
+                <span class="header-text">ARCUEILLAIS</span>
             </div>
         </div>
     </header>
@@ -354,7 +387,7 @@
     <nav>
         <ul>
             <li><a href="#accueil" class="active">Accueil</a></li>
-            <li><a href="evenements">Événements</a></li>
+            <li><a href="#evenements">Événements</a></li>
             <li><a href="#equipes">Équipes</a></li>
             <li><a href="#direction">Direction</a></li>
             <li><a href="#licence">Licence</a></li>
@@ -364,10 +397,11 @@
     <main>
 
         <div id="accueil" class="tab-content active">
-            <h2>Bienvenue au HBC Arcueil</h2>
+            <h2>Bienvenue au HBC Arcueillais</h2>
             <div class="card">
                 <p>Découvrez notre club de handball passionné et dynamique !</p>
-                <p>Fondé en 2001 par Didier, le HBC Arcueil est fier de sa longue histoire et de ses valeurs sportives.
+                <p>Fondé en 2001 par Didier, le HBC Arcueillais est fier de sa longue histoire et de ses valeurs
+                    sportives.
                     Rejoignez-nous pour vivre l'aventure du handball à Arcueil !</p>
             </div>
 
@@ -385,19 +419,75 @@
                 <h3>Localisation de nos gymnases</h3>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d10515.472729364314!2d2.3267391767211186!3d48.80642520702525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgymnase%20arcueil!5e0!3m2!1sfr!2sfr!4v1695650784763!5m2!1sfr!2sfr"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    style="width:100%; height:450px; border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
-
-        <div id="calendrier" class="tab-content">
-            <h2>Calendrier des matchs</h2>
+        <div id="evenements" class="tab-content">
+            <h2>Événements du Club</h2>
             <div class="card">
-                <h3>Prochains matchs :</h3>
+                <h3>Calendrier des événements</h3>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Tournoi de la Galette" class="event-image">
+                        <div class="event-details">
+                            <strong>Tournoi de la Galette</strong><br>
+                            Date : 6 janvier 2025<br>
+                            Lieu : Gymnase Maurice Pigot<br>
+                            Description : Tournoi amical pour célébrer la nouvelle année, suivi du partage de la galette
+                            des rois.
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Stage de Printemps" class="event-image">
+                        <div class="event-details">
+                            <strong>Stage de Printemps</strong><br>
+                            Date : Du 21 au 25 avril 2025<br>
+                            Lieu : Gymnase de la Caisse des dépôts<br>
+                            Description : Stage de perfectionnement pour les jeunes de 10 à 16 ans pendant les vacances
+                            de Pâques.
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Tournoi Halloween" class="event-image">
+                        <div class="event-details">
+                            <strong>Tournoi Halloween</strong><br>
+                            Date : 31 octobre 2025<br>
+                            Lieu : Gymnase Lucien Dimet<br>
+                            Description : Tournoi déguisé pour tous les âges, avec concours du meilleur costume.
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Anniversaire du Club" class="event-image">
+                        <div class="event-details">
+                            <strong>Anniversaire du Club</strong><br>
+                            Date : 15 juin 2025<br>
+                            Lieu : Complexe sportif d'Arcueil<br>
+                            Description : Grande journée de célébration avec tournois, démonstrations et barbecue pour
+                            fêter l'anniversaire du club.
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Tournoi de Noël" class="event-image">
+                        <div class="event-details">
+                            <strong>Tournoi de Noël</strong><br>
+                            Date : 20 décembre 2025<br>
+                            Lieu : Gymnase Maurice Pigot<br>
+                            Description : Tournoi festif de fin d'année pour toutes les catégories, suivi d'un goûter de
+                            Noël.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Événements à venir</h3>
+                <p>Restez à l'écoute pour plus d'informations sur nos prochains événements :</p>
                 <ul>
-                    <li>15/04/2024 : HBC Arcueil vs AS Handball - 20h00</li>
-                    <li>22/04/2024 : SC Handball vs HBC Arcueil - 19h30</li>
-                    <li>29/04/2024 : HBC Arcueil vs US Handball - 20h30</li>
+                    <li>Journée portes ouvertes (septembre 2025)</li>
+                    <li>Téléthon (décembre 2025)</li>
+                    <li>Tournoi inter-entreprises (à définir)</li>
                 </ul>
             </div>
         </div>
@@ -410,16 +500,23 @@
                     <div class="team-list card">
                         <h3>Sélectionnez une équipe</h3>
                         <ul>
-                            <li><a href="#" class="team-link" data-team="senior-m1">Équipe Sénior M 1 ( Région Honneur ) </a></li>
-                            <li><a href="#" class="team-link" data-team="senior-m2">Équipe Sénior Masculine 2 ( Départemental Division 3 ) </a></li>
-                            <li><a href="#" class="team-link" data-team="senior-f1">Équipe Sénior Féminine 1 ( Départemental Division 1 )</a></li>
-                            <li><a href="#" class="team-link" data-team="senior-f2">Équipe Sénior Féminine 2 ( Départemental Division 3 )</a></li>
-                            <li><a href="#" class="team-link" data-team="u18">Équipes Jeunes (U18 F)</a></li>
-                            <li><a href="#" class="team-link" data-team="u18">Équipes Jeunes (U18 M)</a></li>
-                            <li><a href="#" class="team-link" data-team="u15">Équipes Jeunes (U15)</a></li>
-                            <li><a href="#" class="team-link" data-team="u13">Équipes Jeunes (U13)</a></li>
-                            <li><a href="#" class="team-link" data-team="u11">Équipes Jeunes (U11)</a></li>
-                            <li><a href="#" class="team-link" data-team="ecole">École de Handball</a></li>
+                            <li><a href="#" class="team-link" data-team="senior-m1">Équipe Sénior M 1 ( Région Honneur )
+                                </a></li>
+                            <li><a href="#" class="team-link" data-team="senior-m2">Équipe Sénior Masculine 2 (
+                                    Départemental Division 3 ) </a></li>
+                            <li><a href="#" class="team-link" data-team="senior-f1">Équipe Sénior Féminine 1 (
+                                    Départemental Division 1 )</a></li>
+                            <li><a href="#" class="team-link" data-team="senior-f2">Équipe Sénior Féminine 2 (
+                                    Départemental Division 3 )</a></li>
+                            <li><a href="#" class="team-link" data-team="u18-f">Équipes Jeunes (U18 F)</a></li>
+                            <li><a href="#" class="team-link" data-team="u18-m">Équipes Jeunes (U18 M)</a></li>
+                            <li><a href="#" class="team-link" data-team="u15-f">Équipes Jeunes (U15 F)</a></li>
+                            <li><a href="#" class="team-link" data-team="u15-m">Équipes Jeunes (U15 M)</a></li>
+                            <li><a href="#" class="team-link" data-team="u13-f">Équipes Jeunes (U13 F)</a></li>
+                            <li><a href="#" class="team-link" data-team="u13-m">Équipes Jeunes (U13 M)</a></li>
+                            <li><a href="#" class="team-link" data-team="u11-f">Équipes Jeunes (U11 F)</a></li>
+                            <li><a href="#" class="team-link" data-team="u11-m">Équipes Jeunes (U11 M)</a></li>
+                            <li><a href="#" class="team-link" data-team="ecole">Mini Hand</a></li>
                             <li><a href="#" class="team-link" data-team="adapte">Hand Adapté</a></li>
                         </ul>
                     </div>
@@ -427,51 +524,51 @@
                     <div id="senior-m1-calendar" class="team-calendar card">
                         <h4>Calendrier Équipe Sénior Masculine 1</h4>
                         <ul>
-                            <li>22/09/2024 : HBC Arcueil vs PALAISEAU - 16h00-18h00 (PIGOT)</li>
-                            <li>28/09/2024 : HBC Arcueil vs TORCY - 18h00-20h00 (PIGOT)</li>
-                            <li>12/10/2024 : HBC Arcueil vs ROSNY SOUS BOIS - 18h00-20h00 (PIGOT)</li>
-                            <li>09/11/2024 : HBC Arcueil vs PARIS SC - 20h00-22h30 (PIGOT)</li>
-                            <li>07/12/2024 : HBC Arcueil vs PARISIS - 18h00-20h00 (PIGOT)</li>
+                            <li>22/09/2024 : HBC Arcueillais vs PALAISEAU - 16h00-18h00 (PIGOT)</li>
+                            <li>28/09/2024 : HBC Arcueillais vs TORCY - 18h00-20h00 (PIGOT)</li>
+                            <li>12/10/2024 : HBC Arcueillais vs ROSNY SOUS BOIS - 18h00-20h00 (PIGOT)</li>
+                            <li>09/11/2024 : HBC Arcueillais vs PARIS SC - 20h00-22h30 (PIGOT)</li>
+                            <li>07/12/2024 : HBC Arcueillais vs PARISIS - 18h00-20h00 (PIGOT)</li>
                         </ul>
                     </div>
 
                     <div id="senior-m2-calendar" class="team-calendar card">
                         <h4>Calendrier Équipe Sénior Masculine 2</h4>
                         <ul>
-                            <li>21/09/2024 : HBC Arcueil vs NOGENT - 20h00-22h30 (PIGOT)</li>
-                            <li>05/10/2024 : HBC Arcueil vs SCUF2 - 18h00-20h00 (PIGOT)</li>
-                            <li>09/11/2024 : HBC Arcueil vs JOINVILLE - 18h00-20h00 (PIGOT)</li>
-                            <li>07/12/2024 : HBC Arcueil vs LE PERREUX - 20h00-22h30 (PIGOT)</li>
-                            <li>11/01/2025 : HBC Arcueil vs SAINT MANDE - 18h00-20h00 (PIGOT)</li>
-                            <li>18/01/2025 : HBC Arcueil vs PARIS UC - 20h00-22h30 (PIGOT)</li>
-                            <li>01/02/2025 : HBC Arcueil vs ST MAUR - 20h00-22h30 (PIGOT)</li>
-                            <li>08/03/2025 : HBC Arcueil vs CACHAN - 18h00-20h00 (PIGOT)</li>
-                            <li>29/03/2025 : HBC Arcueil vs VITRY - 18h00-20h00 (PIGOT)</li>
-                            <li>05/04/2025 : HBC Arcueil vs CHENNEVIERES - 18h00-20h00 (PIGOT)</li>
-                            <li>10/05/2025 : HBC Arcueil vs MAISONS ALFORT - 20h00-22h30 (PIGOT)</li>
+                            <li>21/09/2024 : HBC Arcueillais vs NOGENT - 20h00-22h30 (PIGOT)</li>
+                            <li>05/10/2024 : HBC Arcueillais vs SCUF2 - 18h00-20h00 (PIGOT)</li>
+                            <li>09/11/2024 : HBC Arcueillais vs JOINVILLE - 18h00-20h00 (PIGOT)</li>
+                            <li>07/12/2024 : HBC Arcueillais vs LE PERREUX - 20h00-22h30 (PIGOT)</li>
+                            <li>11/01/2025 : HBC Arcueillais vs SAINT MANDE - 18h00-20h00 (PIGOT)</li>
+                            <li>18/01/2025 : HBC Arcueillais vs PARIS UC - 20h00-22h30 (PIGOT)</li>
+                            <li>01/02/2025 : HBC Arcueillais vs ST MAUR - 20h00-22h30 (PIGOT)</li>
+                            <li>08/03/2025 : HBC Arcueillais vs CACHAN - 18h00-20h00 (PIGOT)</li>
+                            <li>29/03/2025 : HBC Arcueillais vs VITRY - 18h00-20h00 (PIGOT)</li>
+                            <li>05/04/2025 : HBC Arcueillais vs CHENNEVIERES - 18h00-20h00 (PIGOT)</li>
+                            <li>10/05/2025 : HBC Arcueillais vs MAISONS ALFORT - 20h00-22h30 (PIGOT)</li>
                         </ul>
                     </div>
 
                     <div id="senior-f1-calendar" class="team-calendar card">
                         <h4>Calendrier Équipe Sénior Féminine 1</h4>
                         <ul>
-                            <li>21/09/2024 : HBC Arcueil vs BOISSY - 18h00-20h00 (PIGOT)</li>
-                            <li>12/10/2024 : HBC Arcueil vs VILLENEUVE - 20h00-22h30 (PIGOT)</li>
-                            <li>23/11/2024 : HBC Arcueil vs PARIS SG - 18h00-20h00 (PIGOT)</li>
-                            <li>08/12/2024 : HBC Arcueil vs THIAIS - 14h00-16h00 (PIGOT)</li>
-                            <li>11/01/2025 : HBC Arcueil vs STADE FRANCAIS - 20h00-22h30 (PIGOT)</li>
-                            <li>01/02/2025 : HBC Arcueil vs PARIS SC - 18h00-20h00 (PIGOT)</li>
-                            <li>08/02/2025 : HBC Arcueil vs ETOILE PARISIENNE - 18h00-20h00 (PIGOT)</li>
-                            <li>22/03/2025 : HBC Arcueil vs PARIS UC - 18h00-20h00 (PIGOT)</li>
-                            <li>05/04/2025 : HBC Arcueil vs CSMFINANCES - 20h00-22h30 (PIGOT)</li>
-                            <li>10/05/2025 : HBC Arcueil vs MARTIGUA - 18h00-20h00 (PIGOT)</li>
+                            <li>21/09/2024 : HBC Arcueillais vs BOISSY - 18h00-20h00 (PIGOT)</li>
+                            <li>12/10/2024 : HBC Arcueillais vs VILLENEUVE - 20h00-22h30 (PIGOT)</li>
+                            <li>23/11/2024 : HBC Arcueillais vs PARIS SG - 18h00-20h00 (PIGOT)</li>
+                            <li>08/12/2024 : HBC Arcueillais vs THIAIS - 14h00-16h00 (PIGOT)</li>
+                            <li>11/01/2025 : HBC Arcueillais vs STADE FRANCAIS - 20h00-22h30 (PIGOT)</li>
+                            <li>01/02/2025 : HBC Arcueillais vs PARIS SC - 18h00-20h00 (PIGOT)</li>
+                            <li>08/02/2025 : HBC Arcueillais vs ETOILE PARISIENNE - 18h00-20h00 (PIGOT)</li>
+                            <li>22/03/2025 : HBC Arcueillais vs PARIS UC - 18h00-20h00 (PIGOT)</li>
+                            <li>05/04/2025 : HBC Arcueillais vs CSMFINANCES - 20h00-22h30 (PIGOT)</li>
+                            <li>10/05/2025 : HBC Arcueillais vs MARTIGUA - 18h00-20h00 (PIGOT)</li>
                         </ul>
                     </div>
 
                 </div>
 
                 <div class="team-image card">
-                    <img src="CREINAUX.jpg" alt="Équipes HBC Arcueil" />
+                    <img src="CREINAUX.jpg" alt="Équipes HBC Arcueil">
                 </div>
             </div>
         </div>
@@ -528,8 +625,8 @@
                 <ol>
                     <li>Lire le règlement intérieur et la charte du club puis compléter et signer ce document.</li>
                     <li>Remettre votre cotisation (paiement par chèque, espèces, ou par coupons ANCV et bons CAF), le
-                        document d'autorisation de publication d'image ainsi que <a
-                            href="./Inscriptions 2024-2025.pdf" download="Inscriptions 2024-2025.pdf">ce
+                        document d'autorisation de publication d'image ainsi que <a href="./Inscriptions-2024-2025.pdf"
+                            download="Inscriptions-2024-2025.pdf">ce
                             document</a> à votre entraineur ou
                         l'envoyer par voie postale à : Nathalie Prandi 1, place des musiciens 94110 Arcueil.</li>
                 </ol>
@@ -637,7 +734,7 @@
     </main>
 
     <footer>
-        <p>© 2024 HBC Arcueil. Tous droits réservés.</p>
+        <p>© 2024 HBC Arcueillais. Tous droits réservés.</p>
     </footer>
 
     <script>
