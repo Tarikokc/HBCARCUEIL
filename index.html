@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./index.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+    <!-- 
     <style>
         :root {
             --primary-color: #0056b3;
@@ -369,6 +369,436 @@
                 height: auto;
             }
         }
+    </style> -->
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ffffff;
+            --accent-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('img/LOGO_HBCA.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: -1;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .header-logo {
+            height: 5rem;
+            width: auto;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: var(--accent-color);
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0.5rem 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Main content styles */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Card styles */
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Event styles */
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .event-item {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .event-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 15px;
+            flex: 1;
+        }
+
+        /* Team section styles */
+        .equipes-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .teams-and-calendars {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .team-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .team-list a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+
+        .team-list a:hover,
+        .team-list a.active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .team-image {
+            flex: 1;
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 50%;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            max-height: 600px;
+        }
+
+        .team-calendar {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-calendar.active {
+            display: block;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .organigramme {
+            text-align: center;
+        }
+
+        .organigramme ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .organigramme li {
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px 5px 0 5px;
+            position: relative;
+        }
+
+        .organigramme li::before,
+        .organigramme li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+
+        .organigramme li::after {
+            right: auto;
+            left: 50%;
+            border-left: 1px solid #ccc;
+        }
+
+        .organigramme li:only-child::before,
+        .organigramme li:only-child::after {
+            display: none;
+        }
+
+        .organigramme li:first-child::before,
+        .organigramme li:last-child::after {
+            border: 0 none;
+        }
+
+        .organigramme li:last-child::before {
+            border-right: 1px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+
+        .organigramme li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+
+        .org-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9em;
+            display: inline-block;
+            min-width: 80px;
+            min-height: 30px;
+            background-color: #0056b3;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            border-radius: 10px;
+            /* Ajout de coins arrondis */
+        }
+
+        .org-box.president {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .org-box.orange {
+            background-color: #ffa500;
+        }
+
+        .org-box.green {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .org-box.red {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .org-bottom {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Ajout d'une bordure extérieure au tableau */
+        table {
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Mise en évidence des en-têtes de colonnes */
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Espacement et alignement du contenu des cellules */
+        td {
+            vertical-align: middle;
+        }
+
+        /* Style pour le survol des lignes */
+        tr:hover {
+            background-color: #e6f3ff;
+        }
+
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .equipes-container {
+                flex-direction: column;
+            }
+
+            .team-image {
+                order: -1;
+                max-width: 100%;
+            }
+
+            .team-image img {
+                max-height: 400px;
+            }
+
+            .event-item {
+                flex-direction: column;
+            }
+
+            .event-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .card iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text {
+                font-size: 2rem;
+            }
+
+            .header-logo {
+                height: 4rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .organigramme li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .organigramme li::before,
+            .organigramme li::after {
+                display: none;
+            }
+
+            .org-bottom {
+                margin-top: 0;
+            }
+        }
     </style>
 </head>
 
@@ -395,14 +825,42 @@
     </nav>
 
     <main>
-
         <div id="accueil" class="tab-content active">
             <h2>Bienvenue au HBC Arcueillais</h2>
+
             <div class="card">
+                <h3>Notre Histoire et Notre Mission</h3>
                 <p>Découvrez notre club de handball passionné et dynamique !</p>
-                <p>Fondé en 2001 par Didier, le HBC Arcueillais est fier de sa longue histoire et de ses valeurs
-                    sportives.
-                    Rejoignez-nous pour vivre l'aventure du handball à Arcueil !</p>
+                <p>Fondé en 2001 par une équipe de passionnés, le HandBall Club Arcueillais (HBCA) est rapidement devenu
+                    un acteur incontournable du handball dans le Val-de-Marne et la région Île-de-France.</p>
+                <p>Aujourd'hui, notre club rassemble 250 licenciés, répartis dans 15 collectifs engagés en championnat,
+                    allant des plus jeunes en mini hand jusqu'aux adultes en loisirs et compétition.</p>
+            </div>
+
+            <div class="card">
+                <h3>Notre Engagement</h3>
+                <p>Le club est dirigé par un bureau directeur, dont la mission est d'assurer le suivi quotidien de nos
+                    licenciés et de travailler à l'amélioration continue des conditions de pratique, toujours dans
+                    l'objectif d'offrir le meilleur environnement pour la progression et l'épanouissement de chacun.</p>
+                <p>Nous sommes fiers de notre école de handball, labellisée par la Fédération Française de Handball
+                    depuis 2005, une reconnaissance de la qualité de notre formation. Grâce à nos entraîneurs diplômés
+                    et à l'engagement sans faille de nos bénévoles, nous proposons un accompagnement personnalisé et une
+                    formation d'excellence à nos jeunes athlètes.</p>
+            </div>
+
+            <div class="card">
+                <h3>Nos Valeurs</h3>
+                <p>Le HBCA se distingue également par son engagement en faveur de l'inclusion, avec des équipes de
+                    handball adapté pour les personnes en situation de handicap mental et psychique.</p>
+                <p>Nos valeurs : le respect, la solidarité, et la passion du sport, sont au cœur de toutes nos actions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Rejoignez-nous</h3>
+                <p>Rejoignez-nous pour partager notre passion du handball et vivre des moments uniques, que ce soit pour
+                    la compétition, le loisir, ou pour le plaisir de jouer ensemble.</p>
+                <p><strong>Le HBCARCUEILLAIS</strong></p>
             </div>
 
             <div class="card">
@@ -424,8 +882,28 @@
                 </iframe>
             </div>
         </div>
+
         <div id="evenements" class="tab-content">
             <h2>Événements du Club</h2>
+
+            <div class="card">
+                <h3>La vie événementielle au HBCA</h3>
+                <p>Au HandBall Club Arcueillais (HBCA), chaque occasion est bonne pour célébrer le handball et
+                    rassembler notre communauté. Nous organisons une variété d'événements festifs tout au long de
+                    l'année, tels que :</p>
+                <ul>
+                    <li>Le tournoi parents-enfants de la Galette</li>
+                    <li>Les tournois mixtes Loisirs</li>
+                    <li>Les matinées scolaires découvertes</li>
+                    <li>Le challenge -9 ans Henri Didon, basé sur la devise « plus vite, plus haut, plus fort »</li>
+                    <li>La fête annuelle du club</li>
+                    <li>Des stages durant les vacances scolaires pour les collectifs allant des -13 aux -18 ans</li>
+                </ul>
+                <p>Nos bénévoles et services civiques jouent un rôle essentiel en apportant un soutien quotidien à
+                    l'organisation de ces événements. Leur aide précieuse garantit la bonne réussite de chaque
+                    manifestation.</p>
+            </div>
+
             <div class="card">
                 <h3>Calendrier des événements</h3>
                 <ul class="event-list">
@@ -435,8 +913,8 @@
                             <strong>Tournoi de la Galette</strong><br>
                             Date : 6 janvier 2025<br>
                             Lieu : Gymnase Maurice Pigot<br>
-                            Description : Tournoi amical pour célébrer la nouvelle année, suivi du partage de la galette
-                            des rois.
+                            Description : Tournoi amical parents-enfants pour célébrer la nouvelle année, suivi du
+                            partage de la galette des rois.
                         </div>
                     </li>
                     <li class="event-item">
@@ -445,8 +923,28 @@
                             <strong>Stage de Printemps</strong><br>
                             Date : Du 21 au 25 avril 2025<br>
                             Lieu : Gymnase de la Caisse des dépôts<br>
-                            Description : Stage de perfectionnement pour les jeunes de 10 à 16 ans pendant les vacances
+                            Description : Stage de perfectionnement pour les jeunes de 13 à 18 ans pendant les vacances
                             de Pâques.
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Challenge Henri Didon" class="event-image">
+                        <div class="event-details">
+                            <strong>Challenge Henri Didon -9 ans</strong><br>
+                            Date : 15 mai 2025<br>
+                            Lieu : Complexe sportif d'Arcueil<br>
+                            Description : Tournoi pour les moins de 9 ans basé sur la devise olympique « plus vite, plus
+                            haut, plus fort ».
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <img src="https://placehold.co/200x400" alt="Fête du Club" class="event-image">
+                        <div class="event-details">
+                            <strong>Fête Annuelle du Club</strong><br>
+                            Date : 15 juin 2025<br>
+                            Lieu : Complexe sportif d'Arcueil<br>
+                            Description : Grande journée de célébration avec tournois, démonstrations et barbecue pour
+                            tous les membres du club.
                         </div>
                     </li>
                     <li class="event-item">
@@ -458,26 +956,6 @@
                             Description : Tournoi déguisé pour tous les âges, avec concours du meilleur costume.
                         </div>
                     </li>
-                    <li class="event-item">
-                        <img src="https://placehold.co/200x400" alt="Anniversaire du Club" class="event-image">
-                        <div class="event-details">
-                            <strong>Anniversaire du Club</strong><br>
-                            Date : 15 juin 2025<br>
-                            Lieu : Complexe sportif d'Arcueil<br>
-                            Description : Grande journée de célébration avec tournois, démonstrations et barbecue pour
-                            fêter l'anniversaire du club.
-                        </div>
-                    </li>
-                    <li class="event-item">
-                        <img src="https://placehold.co/200x400" alt="Tournoi de Noël" class="event-image">
-                        <div class="event-details">
-                            <strong>Tournoi de Noël</strong><br>
-                            Date : 20 décembre 2025<br>
-                            Lieu : Gymnase Maurice Pigot<br>
-                            Description : Tournoi festif de fin d'année pour toutes les catégories, suivi d'un goûter de
-                            Noël.
-                        </div>
-                    </li>
                 </ul>
             </div>
 
@@ -485,13 +963,14 @@
                 <h3>Événements à venir</h3>
                 <p>Restez à l'écoute pour plus d'informations sur nos prochains événements :</p>
                 <ul>
-                    <li>Journée portes ouvertes (septembre 2025)</li>
+                    <li>Journée portes ouvertes et forum des associations (septembre 2025)</li>
+                    <li>Tournoi mixte Loisirs (octobre 2025)</li>
+                    <li>Matinée scolaire découverte (novembre 2025)</li>
                     <li>Téléthon (décembre 2025)</li>
-                    <li>Tournoi inter-entreprises (à définir)</li>
+                    <li>Tournoi de Noël (décembre 2025)</li>
                 </ul>
             </div>
         </div>
-
 
         <div id="equipes" class="tab-content">
             <h2>Nos Équipes</h2>
@@ -572,21 +1051,107 @@
                 </div>
             </div>
         </div>
+
         <div id="direction" class="tab-content">
             <h2>Direction du club</h2>
             <div class="card">
+                <h3>Bureau Directeur</h3>
                 <ul>
-                    <li>Président : Jean Dupont</li>
-                    <li>Vice-président : Marie Martin</li>
-                    <li>Trésorier : Pierre Durand</li>
-                    <li>Secrétaire : Sophie Lefebvre</li>
+                    <li>Président : DENJEAN Didier</li>
+                    <li>Vice-président : GENICHON Cyrille</li>
+                    <li>Trésorière : PALLIER Sylvie</li>
+                    <li>Secrétaire : PRANDI Nathalie</li>
                 </ul>
+            </div>
+
+            <div class="card">
+                <h3>Organigramme</h3>
+                <div class="organigramme">
+                    <ul>
+                        <li>
+                            <div class="org-box president">PRESIDENT<br>DENJEAN Didier</div>
+                            <ul>
+                                <li>
+                                    <div class="org-box">SECRETAIRE<br>PRANDI Nathalie</div>
+                                    <ul>
+                                        <li>
+                                            <div class="org-box">CORRESPONDANT GENERAL<br>PRANDI Nathalie</div>
+                                        </li>
+                                        <li>
+                                            <div class="org-box">SECRETAIRE ADJOINTE<br>MENDIOGO Melvyna</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="org-box">VICE PRESIDENT<br>GENICHON Cyrille</div>
+                                </li>
+                                <li>
+                                    <div class="org-box">TRESORIERE<br>PALLIER Sylvie</div>
+                                    <ul>
+                                        <li>
+                                            <div class="org-box">TRESORIER ADJOINT<br>BONNESOEUR Sebastien</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="org-bottom">
+                        <li>
+                            <div class="org-box orange">BUREAU ELARGI<br>RIDHA<br>NADEGE</div>
+                        </li>
+                        <li>
+                            <div class="org-box green">2 SERVICES CIVIQUES<br>ENZO<br>THOMAS</div>
+                        </li>
+                        <li>
+                            <div class="org-box red">7 COMMISSIONS</div>
+                            <ul>
+                                <li>
+                                    <div class="org-box red">PARTENAIRES</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">TECHNIQUE<br>ROMAIN ET ENTRAINEURS</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">COMMUNICATION<br>MELVYNA</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">ACHATS<br>THIBAUT</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">ARBITRAGE<br>ENZO</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">DISCIPLINE<br>CYRILLE ET DEB</div>
+                                </li>
+                                <li>
+                                    <div class="org-box red">EVENEMENTIELLE<br>MICKAEL</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Notre équipe événementielle</h3>
+                <p>Nous avons mis en place une équipe dédiée à l'événementiel et au sponsoring, composée de talents
+                    divers :</p>
+                <ul>
+                    <li>Un photographe pour immortaliser nos moments forts</li>
+                    <li>Un community manager pour assurer notre visibilité sur les réseaux sociaux</li>
+                    <li>Un web developer pour la gestion de notre site internet</li>
+                    <li>Un responsable sponsoring en charge de nos partenariats</li>
+                </ul>
+                <p>Tout au long de l'année, nous veillons à ce que nos événements internes et nos démarches quotidiennes
+                    soient parfaitement orchestrés, avec un souci constant de faire du HBCA un acteur incontournable du
+                    handball local.</p>
             </div>
         </div>
 
         <div id="licence" class="tab-content">
             <h2>Obtenir une licence</h2>
-            <p class="note"><strong>Note importante :</strong> L'adresse e-mail fournie n'est pas gérée automatiquement.
+            <p class="card"><strong>Note importante :</strong> L'adresse e-mail fournie n'est pas gérée automatiquement.
                 Nous vous remercions de bien vouloir rester courtois dans vos échanges et de faire preuve de patience.
                 Nos bénévoles traiteront votre demande dans les meilleurs délais.</p>
 
