@@ -8,371 +8,10 @@
     <link rel="stylesheet" href="./index.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- 
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #ffffff;
-            --accent-color: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary-color);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 2rem 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 150px;
-            /* Ajustez cette valeur selon vos besoins */
-        }
-
-        .header-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .header-text {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        .header-logo {
-            height: 5rem;
-            /* Ajustez cette valeur selon la taille souhaitée */
-            width: auto;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-
-        nav {
-            background-color: var(--accent-color);
-            padding: 1rem 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 0.5rem 1rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-
-        main {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex: 1;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 1rem 0;
-            width: 100%;
-        }
-
-        .card {
-            background-color: var(--secondary-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .event-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .event-item {
-            display: flex;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .event-image {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .event-details {
-            padding: 15px;
-            flex: 1;
-        }
-
-        /* Styles pour la section des équipes */
-        .equipes-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .teams-and-calendars {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .team-list {
-            margin-bottom: 1rem;
-        }
-
-        .team-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .team-list h3 {
-            margin-top: 1.5rem;
-        }
-
-        .team-list a {
-            display: block;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.3s;
-        }
-
-        .team-list a:hover {
-            background-color: #f0f0f0;
-        }
-
-        .team-image {
-            flex: 1;
-            text-align: center;
-            margin-bottom: 2rem;
-            max-width: 50%;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-            max-height: 600px;
-        }
-
-        .team-calendar {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-calendar.active {
-            display: block;
-        }
-
-        .team-calendar h4 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .team-calendar ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .team-calendar li {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-link.active {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-
-        #equipe-select {
-            padding: 0.8rem 1.2rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #fff;
-            color: #333;
-            appearance: none;
-            -webkit-appearance: none;
-            cursor: pointer;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            padding-right: 3rem;
-        }
-
-        #equipe-select:hover {
-            border-color: #aaa;
-        }
-
-        #equipe-select:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .note {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffeeba;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-style: italic;
-        }
-
-        .note strong {
-            color: #856404;
-        }
-
-        .card iframe {
-            max-width: 100%;
-            height: 450px;
-        }
-
-        a[download] {
-            color: #0056b3;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        a[download]:hover {
-            color: #003d7a;
-        }
-
-        @media (max-width: 768px) {
-            .equipes-container {
-                flex-direction: column;
-            }
-
-            .team-image {
-                order: -1;
-                max-width: 100%;
-            }
-
-            .team-image img {
-                max-height: 400px;
-            }
-
-            .teams-and-calendars {
-                flex: auto;
-            }
-
-            .team-list,
-            .team-calendar {
-                flex-basis: 100%;
-            }
-
-            .card iframe {
-                height: 300px;
-            }
-
-            .event-item {
-                flex-direction: column;
-            }
-
-            .event-image {
-                width: 100%;
-                height: auto;
-            }
-        }
-    </style> -->
-    <style>
-        :root {
-            --primary-color: #0056b3;
+            /* --primary-color: #0056b3; */
+            --primary-color: #0b008f;
             --secondary-color: #ffffff;
             --accent-color: #f8f9fa;
             --text-color: #333;
@@ -430,6 +69,7 @@
         .header-text {
             font-size: 2.5rem;
             font-weight: bold;
+            color: white;
         }
 
         .header-logo {
@@ -734,6 +374,91 @@
             background-color: #e6f3ff;
         }
 
+        .social-media,
+        .sponsoring,
+        .contact-form {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        /* Couleurs spécifiques pour chaque réseau social */
+        .social-link.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .social-link.facebook {
+            background: #1877f2;
+        }
+
+        .social-link.tiktok {
+            background: #000000;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
 
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -821,6 +546,7 @@
             <li><a href="#equipes">Équipes</a></li>
             <li><a href="#direction">Direction</a></li>
             <li><a href="#licence">Licence</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -835,6 +561,9 @@
                     un acteur incontournable du handball dans le Val-de-Marne et la région Île-de-France.</p>
                 <p>Aujourd'hui, notre club rassemble 250 licenciés, répartis dans 15 collectifs engagés en championnat,
                     allant des plus jeunes en mini hand jusqu'aux adultes en loisirs et compétition.</p>
+                <p class="boutique-link">Soutenez notre club en visitant <a
+                        href="https://app.grinta.eu/hbcarcueillais/genders/new?collection=official" target="_blank"
+                        rel="noopener noreferrer">notre boutique officielle</a> !</p>
             </div>
 
             <div class="card">
@@ -854,13 +583,6 @@
                     handball adapté pour les personnes en situation de handicap mental et psychique.</p>
                 <p>Nos valeurs : le respect, la solidarité, et la passion du sport, sont au cœur de toutes nos actions.
                 </p>
-            </div>
-
-            <div class="card">
-                <h3>Rejoignez-nous</h3>
-                <p>Rejoignez-nous pour partager notre passion du handball et vivre des moments uniques, que ce soit pour
-                    la compétition, le loisir, ou pour le plaisir de jouer ensemble.</p>
-                <p><strong>Le HBCARCUEILLAIS</strong></p>
             </div>
 
             <div class="card">
@@ -1294,6 +1016,103 @@
             <div class="card">
                 <p>Pour plus d'informations, contactez-nous à <a
                         href="mailto:5894056@ffhandball.net">5894056@ffhandball.net</a></p>
+            </div>
+        </div>
+
+        <!-- <div id="contact" class="tab-content">
+            <div class="social-media">
+                <h3>Suivez-nous sur les réseaux sociaux</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/votre-compte" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/votre-page" target="_blank" class="social-link">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.tiktok.com/@votre-compte" target="_blank" class="social-link">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </a>
+                </div>
+            </div>
+
+            <div class="sponsoring">
+                <h3>Pour nous contacter concernant le sponsoring</h3>
+                <p>Téléphone : <a href="tel:VOTRE-NUMERO">VOTRE-NUMERO</a></p>
+            </div>
+
+            <div class="contact-form">
+                <h3>Contactez-nous</h3>
+                <form action="mailto:votre-email@domaine.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" name="nom" placeholder="Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="prenom" placeholder="Prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Adresse email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div> -->
+
+        <div id="contact" class="tab-content">
+            <h2>Contact</h2>
+
+            <div class="card">
+                <h3>Suivez-nous sur les réseaux sociaux</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/hbcarcueillais" target="_blank" class="social-link instagram">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/hbcarcueillais" target="_blank" class="social-link facebook">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.tiktok.com/@hbcarcueillais" target="_blank" class="social-link tiktok">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Contact Sponsoring</h3>
+                <p>Pour toute demande concernant le sponsoring et les partenariats :</p>
+                <p>Téléphone : <a href="tel:0123456789">01 23 45 67 89</a></p>
+                <p>Email : <a href="mailto:sponsoring@hbcarcueillais.fr">sponsoring@hbcarcueillais.fr</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Nous contacter</h3>
+                <form action="mailto:oukaci.tarik@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" name="nom" placeholder="Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="prenom" placeholder="Prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Adresse email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Horaires du secrétariat</h3>
+                <p>Le secrétariat est ouvert :</p>
+                <ul>
+                    <li>Lundi : 18h00 - 20h00</li>
+                    <li>Mercredi : 14h00 - 18h00</li>
+                    <li>Vendredi : 17h00 - 19h00</li>
+                </ul>
+                <p>Pour toute question urgente en dehors de ces horaires, vous pouvez nous contacter par email.</p>
             </div>
         </div>
     </main>
