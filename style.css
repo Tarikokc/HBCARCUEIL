@@ -1,3 +1,9 @@
+/* Ajoutez ceci tout en haut de votre CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* Variables */
 :root {
     --primary-color: #0b008f;
@@ -11,7 +17,7 @@
     --gap-size: 1rem;
 }
 
-/* Global styles */
+/* Remplacez votre style body actuel par celui-ci */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -21,11 +27,22 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100%;                /* Ajouté */
+    overflow-x: hidden;         /* Ajouté */
+    position: relative;         /* Ajouté */
     background-image: url('img/LOGO_HBCA.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+/* Et ajoutez cette règle pour html juste avant body */
+html {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 body::before {
@@ -141,7 +158,18 @@ h2 {
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
 }
+/* Style général pour les listes (mode desktop) */
+ul, ol {
+    list-style-position: inside;
+    margin: 1rem 0;
+    padding-left: 1rem;
+}
 
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    padding-left: 0.5rem;
+}
 /* Card styles */
 .card {
     background-color: rgba(255, 255, 255, 0.9);
@@ -150,6 +178,26 @@ h2 {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
+/* Style pour les listes dans les cards */
+.card ul, 
+.card ol {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.card li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0;
+    margin: 0;
+}
+
+.card li:last-child {
+    border-bottom: none;
+}
+
 
 /* Event styles */
 .event-list {
@@ -460,39 +508,163 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 480px) {
-    .header-text {
-        font-size: 1.5rem;
+    body {
+        background-size: auto 100vh; /* Force l'image à prendre la hauteur de l'écran */
+        background-position: center;
+        background-attachment: scroll; /* Meilleure performance sur mobile */
     }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
+    header, nav, footer, main {
         width: 100%;
-        text-align: center;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+        position: relative;
     }
-
-    .card {
+ 
+    main {
         padding: 1rem;
+        width: 100%;
     }
-
-    #equipes .widget-container {
-        height: 400px;
-        margin-bottom: 1.5rem;
+ 
+    body {
+        min-width: 100%;
+        width: 100%;
     }
-
+ 
+    .header-content, 
+    .header-container,
+    nav ul,
+    .card {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+ 
+    /* Correction pour les liens sociaux */
     .social-links {
+        width: 100%;
+        display: flex;
         flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 0;
+        box-sizing: border-box;
     }
-
+ 
     .social-link {
         width: 100%;
+        margin: 0;
+        display: flex;
         justify-content: center;
+        padding: 1rem;
+        text-align: center;
     }
-}
+ 
+    .instagram,
+    .facebook,
+    .tiktok {
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    /* Nouveau style pour le tableau responsive */
+    .table-responsive {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+ 
+    .table-responsive table,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive tr,
+    .table-responsive th,
+    .table-responsive td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    .table-responsive thead {
+        display: none;
+    }
+ 
+    .table-responsive tr {
+        margin-bottom: 1rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+ 
+    .table-responsive td {
+        position: relative;
+        padding: 1rem;
+        padding-left: 50%;
+        min-height: 1rem;
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9rem;
+    }
+ 
+    .table-responsive td:last-child {
+        border-bottom: none;
+    }
+ 
+    .table-responsive td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.8rem;
+        width: 45%;
+        padding-right: 5px;
+        font-weight: bold;
+        color: var(--primary-color);
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+ 
+    /* Style spécifique pour les créneaux d'entrainement */
+    .table-responsive td[data-label="Créneaux d'entrainement"] {
+        padding-left: 1rem;
+        padding-top: 3.5rem;
+    }
+ 
+    .table-responsive td[data-label="Créneaux d'entrainement"]::before {
+        top: 1rem;
+        width: 90%;
+    }
 
+    ul, ol {
+        padding-left: 0.5rem;
+        margin: 0.8rem 0;
+    }
+
+    li {
+        margin: 0.4rem 0;
+        padding-left: 0.3rem;
+    }
+
+    .card ul, 
+    .card ol {
+        padding: 0.8rem;
+    }
+
+    .card li {
+        padding: 0.6rem 0;
+    }
+
+ }
 /* Print styles */
 @media print {
     body {
